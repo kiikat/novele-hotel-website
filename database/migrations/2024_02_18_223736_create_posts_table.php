@@ -11,17 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create(table: 'posts', function (Blueprint $table) {
+        Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->string(column: 'title');
-            $table->string(column: 'slug');
-            $table->string(column: 'thumbnail')->nullable();
-            $table->longText(column:'body');
-            $table->boolean(column:'active');
-            $table->datetimes(precision: 'published_at');
-            $table->foreignIdFor(model: \App\Models\User::class, column: 'user_id');
+            $table->string('title');
+            $table->string('slug');
+            $table->string('thumbnail')->nullable();
+            $table->longText('body');
+            $table->boolean('active');
+            $table->datetime('published_at');
+            $table->foreignIdFor(\App\Models\User::class, 'user_id');
             $table->timestamps();
-        );
+        });
     }
 
     /**
